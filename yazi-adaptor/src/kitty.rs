@@ -309,7 +309,7 @@ static DIACRITICS: [char; 297] = [
 	'\u{1D244}',
 ];
 
-pub(super) struct Kitty;
+pub struct Kitty;
 
 impl Kitty {
 	pub(super) async fn image_show(path: &Path, rect: Rect) -> Result<(u32, u32)> {
@@ -341,7 +341,7 @@ impl Kitty {
 		})
 	}
 
-	pub(super) fn image_erase(rect: Rect) -> Result<()> {
+	pub fn image_erase(rect: Rect) -> Result<()> {
 		let stdout = BufWriter::new(stdout().lock());
 		let s = " ".repeat(rect.width as usize);
 		Term::move_lock(stdout, (0, 0), |stdout| {

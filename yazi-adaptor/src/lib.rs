@@ -2,8 +2,8 @@
 
 mod adaptor;
 mod image;
-mod iterm2;
-mod kitty;
+pub mod iterm2;
+pub mod kitty;
 mod kitty_old;
 mod sixel;
 mod ueberzug;

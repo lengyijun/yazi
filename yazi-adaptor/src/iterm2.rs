@@ -9,7 +9,7 @@ use yazi_shared::term::Term;
 use super::image::Image;
 use crate::{adaptor::Adaptor, CLOSE, START};
 
-pub(super) struct Iterm2;
+pub struct Iterm2;
 
 impl Iterm2 {
 	pub(super) async fn image_show(path: &Path, rect: Rect) -> Result<(u32, u32)> {
@@ -25,7 +25,7 @@ impl Iterm2 {
 		})
 	}
 
-	pub(super) fn image_erase(rect: Rect) -> Result<()> {
+	pub fn image_erase(rect: Rect) -> Result<()> {
 		let stdout = BufWriter::new(stdout().lock());
 		let s = " ".repeat(rect.width as usize);
 		Term::move_lock(stdout, (0, 0), |stdout| {
